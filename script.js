@@ -53,14 +53,14 @@ function animateStatBars() {
 
 // ---------- GALLERY LIGHTBOX ----------
 const photoPaths = [
-  'assets/photo1.jpg',
-  'assets/photo2.jpg',
-  'assets/photo3.jpg',
-  'assets/photo4.jpg',
-  'assets/photo5.jpg',
-  'assets/photo6.jpg',
-  'assets/photo7.jpg',
-  'assets/photo8.jpg',
+  'https://picsum.photos/seed/ajavon1/400/400',
+  'https://picsum.photos/seed/ajavon2/400/400',
+  'https://picsum.photos/seed/ajavon3/400/400',
+  'https://picsum.photos/seed/ajavon4/400/400',
+  'https://picsum.photos/seed/ajavon5/400/400',
+  'https://picsum.photos/seed/ajavon6/400/400',
+  'https://picsum.photos/seed/ajavon7/400/400',
+  'https://picsum.photos/seed/ajavon8/400/400',
 ];
 
 let currentPhoto = 0;
@@ -119,6 +119,29 @@ function submitForm(e) {
   scoreEl.textContent = String(cur + 1000).padStart(6, '0');
 
   setTimeout(() => success.classList.add('hidden'), 5000);
+}
+
+// ---------- SECTION SNAP NAV ----------
+const sectionOrder = ['hero', 'bio', 'gallery', 'work', 'contact'];
+
+function getCurrentSectionIndex() {
+  const scrollMid = window.scrollY + window.innerHeight / 2;
+  let closest = 0;
+  let closestDist = Infinity;
+  sectionOrder.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const dist = Math.abs(el.offsetTop + el.offsetHeight / 2 - scrollMid);
+    if (dist < closestDist) { closestDist = dist; closest = i; }
+  });
+  return closest;
+}
+
+function navigateSection(dir) {
+  const current = getCurrentSectionIndex();
+  const next = Math.max(0, Math.min(sectionOrder.length - 1, current + dir));
+  const el = document.getElementById(sectionOrder[next]);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ---------- FOOTER YEAR ----------

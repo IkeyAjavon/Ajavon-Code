@@ -1,0 +1,14 @@
+DROP YOUR IMAGES IN THIS FOLDER:
+
+  profile.png   — your profile / hero photo
+  photo1.jpg    — gallery slot 1
+  photo2.jpg    — gallery slot 2
+  photo3.jpg    — gallery slot 3
+  photo4.jpg    — gallery slot 4
+  photo5.jpg    — gallery slot 5
+  photo6.jpg    — gallery slot 6
+  photo7.jpg    — gallery slot 7
+  photo8.jpg    — gallery slot 8
+
+For videos: open index.html, find the video sections, and replace the
+placeholder divs with your <iframe> embed code from YouTube/TikTok/etc.

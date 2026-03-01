@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLAYER ONE — About Me</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- SCANLINE OVERLAY -->
+  <div class="scanlines"></div>
+
+  <!-- BOOT SCREEN -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <p class="boot-line">INITIALIZING SYSTEM...</p>
+      <p class="boot-line">LOADING PLAYER DATA...</p>
+      <p class="boot-line">PRESS START ▶</p>
+      <button id="start-btn" onclick="bootUp()">[ PRESS START ]</button>
+    </div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div id="main-site" class="hidden">
+
+    <!-- NAV BAR -->
+    <nav class="pixel-nav">
+      <span class="nav-logo blink">★ PLAYER ONE ★</span>
+      <ul>
+        <li><a href="#hero">HOME</a></li>
+        <li><a href="#bio">BIO</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <span class="nav-score">SCORE: <span id="score">000000</span></span>
+    </nav>
+
+    <!-- HERO / PROFILE -->
+    <section id="hero" class="section hero-section">
+      <div class="pixel-border hero-box">
+        <div class="hero-inner">
+          <div class="avatar-frame">
+            <div class="avatar-label">PLAYER 1</div>
+            <div class="avatar-wrap">
+              <img src="assets/profile.png" alt="Profile Picture" id="profile-img" onerror="this.style.display='none'; document.getElementById('avatar-placeholder').style.display='flex';" />
+              <div id="avatar-placeholder" class="avatar-placeholder">
+                <span>INSERT<br/>PHOTO<br/>HERE</span>
+              </div>
+            </div>
+            <div class="avatar-hp">
+              <span>HP</span>
+              <div class="hp-bar"><div class="hp-fill"></div></div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <h1 class="glitch" data-text="YOUR NAME">YOUR NAME</h1>
+            <p class="hero-subtitle">&gt; LEVEL 99 HUMAN</p>
+            <p class="hero-subtitle">&gt; CLASS: CREATIVE</p>
+            <p class="hero-subtitle">&gt; LOCATION: EARTH</p>
+            <div class="hero-stats">
+              <div class="stat"><span>STR</span><div class="stat-bar"><div class="stat-fill" style="width:80%"></div></div></div>
+              <div class="stat"><span>DEX</span><div class="stat-bar"><div class="stat-fill" style="width:95%"></div></div></div>
+              <div class="stat"><span>INT</span><div class="stat-bar"><div class="stat-fill" style="width:88%"></div></div></div>
+              <div class="stat"><span>CHA</span><div class="stat-bar"><div class="stat-fill" style="width:92%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="marquee-wrap">
+        <div class="marquee">
+          ★ WELCOME TO MY PAGE ★ &nbsp;&nbsp; ✦ QUEST ACCEPTED ✦ &nbsp;&nbsp; ★ EXPLORING THE WORLD ★ &nbsp;&nbsp; ✦ 1UP ✦ &nbsp;&nbsp;
+          ★ WELCOME TO MY PAGE ★ &nbsp;&nbsp; ✦ QUEST ACCEPTED ✦ &nbsp;&nbsp; ★ EXPLORING THE WORLD ★ &nbsp;&nbsp; ✦ 1UP ✦ &nbsp;&nbsp;
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO SECTION -->
+    <section id="bio" class="section">
+      <div class="section-header">
+        <h2>[ BIO ]</h2>
+        <div class="header-line"></div>
+      </div>
+      <div class="pixel-border bio-box">
+        <div class="bio-portrait">
+          <div class="pixel-char"></div>
+          <div class="char-name blink">▲ YOU ▲</div>
+        </div>
+        <div class="bio-text-box">
+          <div class="dialog-arrow blink">▶</div>
+          <p class="bio-text" id="bio-text">
+            Hey there, adventurer! Welcome to my corner of the internet. I'm a passionate creator who loves making things — whether it's art, content, or just good vibes. I believe every day is a new level to conquer, and I'm here for every quest life throws at me. Drop me a message and let's team up!
+          </p>
+          <p class="bio-text" style="margin-top:1.5rem;">
+            When I'm not creating, you'll find me exploring new places, leveling up my skills, and building something awesome. Life's too short for side quests — I go straight for the main story.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section id="gallery" class="section">
+      <div class="section-header">
+        <h2>[ GALLERY ]</h2>
+        <div class="header-line"></div>
+      </div>
+      <p class="section-sub">★ MEMORY SLOTS: 8/8 FILLED ★</p>
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="gallery-card" onclick="openLightbox(0)">
+          <div class="card-screen">
+            <img src="assets/photo1.jpg" alt="Photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 1</div>
+          </div>
+          <div class="card-label">MEM SLOT 1</div>
+        </div>
+        <!-- Photo 2 -->
+        <div class="gallery-card" onclick="openLightbox(1)">
+          <div class="card-screen">
+            <img src="assets/photo2.jpg" alt="Photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 2</div>
+          </div>
+          <div class="card-label">MEM SLOT 2</div>
+        </div>
+        <!-- Photo 3 -->
+        <div class="gallery-card" onclick="openLightbox(2)">
+          <div class="card-screen">
+            <img src="assets/photo3.jpg" alt="Photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 3</div>
+          </div>
+          <div class="card-label">MEM SLOT 3</div>
+        </div>
+        <!-- Photo 4 -->
+        <div class="gallery-card" onclick="openLightbox(3)">
+          <div class="card-screen">
+            <img src="assets/photo4.jpg" alt="Photo 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 4</div>
+          </div>
+          <div class="card-label">MEM SLOT 4</div>
+        </div>
+        <!-- Photo 5 -->
+        <div class="gallery-card" onclick="openLightbox(4)">
+          <div class="card-screen">
+            <img src="assets/photo5.jpg" alt="Photo 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 5</div>
+          </div>
+          <div class="card-label">MEM SLOT 5</div>
+        </div>
+        <!-- Photo 6 -->
+        <div class="gallery-card" onclick="openLightbox(5)">
+          <div class="card-screen">
+            <img src="assets/photo6.jpg" alt="Photo 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 6</div>
+          </div>
+          <div class="card-label">MEM SLOT 6</div>
+        </div>
+        <!-- Photo 7 -->
+        <div class="gallery-card" onclick="openLightbox(6)">
+          <div class="card-screen">
+            <img src="assets/photo7.jpg" alt="Photo 7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 7</div>
+          </div>
+          <div class="card-label">MEM SLOT 7</div>
+        </div>
+        <!-- Photo 8 -->
+        <div class="gallery-card" onclick="openLightbox(7)">
+          <div class="card-screen">
+            <img src="assets/photo8.jpg" alt="Photo 8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="card-placeholder">📷<br/>PHOTO 8</div>
+          </div>
+          <div class="card-label">MEM SLOT 8</div>
+        </div>
+      </div>
+
+      <!-- LIGHTBOX -->
+      <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+        <div class="lightbox-inner" onclick="event.stopPropagation()">
+          <button class="lb-close" onclick="closeLightbox()">[ X ]</button>
+          <button class="lb-prev" onclick="changePhoto(-1)">◀</button>
+          <img id="lb-img" src="" alt="" />
+          <div id="lb-placeholder" class="lb-placeholder hidden">📷 PHOTO NOT LOADED</div>
+          <button class="lb-next" onclick="changePhoto(1)">▶</button>
+          <div class="lb-label" id="lb-label">MEM SLOT 1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECENT WORK / VIDEOS -->
+    <section id="work" class="section">
+      <div class="section-header">
+        <h2>[ RECENT WORK ]</h2>
+        <div class="header-line"></div>
+      </div>
+      <p class="section-sub">★ NOW PLAYING: LATEST CONTENT ★</p>
+      <div class="work-grid">
+
+        <!-- Video 1 -->
+        <div class="video-card">
+          <div class="video-screen">
+            <div class="video-embed-wrap">
+              <!-- Replace src with your video embed URL -->
+              <div class="video-placeholder">
+                <span class="play-icon">▶</span>
+                <span>VIDEO 1</span>
+                <span class="vid-hint">Paste embed URL in HTML</span>
+              </div>
+              <!-- Uncomment and replace URL to embed: -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe> -->
+            </div>
+          </div>
+          <div class="video-info">
+            <p class="video-title">VIDEO TITLE HERE</p>
+            <p class="video-meta">▶ 0 VIEWS &nbsp; ★ NEW</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card">
+          <div class="video-screen">
+            <div class="video-embed-wrap">
+              <div class="video-placeholder">
+                <span class="play-icon">▶</span>
+                <span>VIDEO 2</span>
+                <span class="vid-hint">Paste embed URL in HTML</span>
+              </div>
+            </div>
+          </div>
+          <div class="video-info">
+            <p class="video-title">VIDEO TITLE HERE</p>
+            <p class="video-meta">▶ 0 VIEWS &nbsp; ★ NEW</p>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card">
+          <div class="video-screen">
+            <div class="video-embed-wrap">
+              <div class="video-placeholder">
+                <span class="play-icon">▶</span>
+                <span>VIDEO 3</span>
+                <span class="vid-hint">Paste embed URL in HTML</span>
+              </div>
+            </div>
+          </div>
+          <div class="video-info">
+            <p class="video-title">VIDEO TITLE HERE</p>
+            <p class="video-meta">▶ 0 VIEWS &nbsp; ★ NEW</p>
+          </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="video-card">
+          <div class="video-screen">
+            <div class="video-embed-wrap">
+              <div class="video-placeholder">
+                <span class="play-icon">▶</span>
+                <span>VIDEO 4</span>
+                <span class="vid-hint">Paste embed URL in HTML</span>
+              </div>
+            </div>
+          </div>
+          <div class="video-info">
+            <p class="video-title">VIDEO TITLE HERE</p>
+            <p class="video-meta">▶ 0 VIEWS &nbsp; ★ NEW</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>[ CONTACT ]</h2>
+        <div class="header-line"></div>
+      </div>
+      <p class="section-sub">★ SEND A MESSAGE — RESPONSE TIME: FAST ★</p>
+      <div class="contact-wrap">
+        <div class="contact-panel pixel-border">
+          <div class="contact-links">
+            <a href="#" class="contact-btn">
+              <span class="btn-icon">📸</span> INSTAGRAM
+            </a>
+            <a href="#" class="contact-btn">
+              <span class="btn-icon">🎵</span> TIKTOK
+            </a>
+            <a href="#" class="contact-btn">
+              <span class="btn-icon">🐦</span> TWITTER / X
+            </a>
+            <a href="#" class="contact-btn">
+              <span class="btn-icon">▶</span> YOUTUBE
+            </a>
+            <a href="mailto:you@email.com" class="contact-btn">
+              <span class="btn-icon">✉</span> EMAIL ME
+            </a>
+          </div>
+        </div>
+        <div class="contact-form pixel-border">
+          <p class="form-title">&gt; SEND DIRECT MESSAGE</p>
+          <form onsubmit="submitForm(event)">
+            <div class="form-group">
+              <label>NAME:</label>
+              <input type="text" placeholder="ENTER YOUR NAME" required />
+            </div>
+            <div class="form-group">
+              <label>EMAIL:</label>
+              <input type="email" placeholder="ENTER YOUR EMAIL" required />
+            </div>
+            <div class="form-group">
+              <label>MESSAGE:</label>
+              <textarea placeholder="TYPE YOUR MESSAGE HERE..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn blink-hover">[ SEND MESSAGE ▶ ]</button>
+          </form>
+          <div id="form-success" class="form-success hidden">
+            ✔ MESSAGE SENT! QUEST LOGGED.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pixel-footer">
+      <p>© <span id="year"></span> YOUR NAME — ALL RIGHTS RESERVED</p>
+      <p class="footer-sub blink">INSERT COIN TO CONTINUE...</p>
+      <div class="footer-coins">🪙 🪙 🪙</div>
+    </footer>
+
+  </div><!-- end #main-site -->
+
+  <script src="script.js"></script>
+</body>
+</html>
